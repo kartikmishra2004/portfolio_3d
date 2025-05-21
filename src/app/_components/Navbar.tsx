@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <header className="fixed flex backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
+        <header className="fixed flex z-50 backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
             <Link href={'/'}>
                 <Image className="saturate-0 brightness-150" src='logo.svg' alt="logo" width={17} height={17} />
             </Link>
-            <nav className="">
-                <ul className="flex gap-7 text-[11px] tracking-widest">
+            <nav>
+                <ul className="flex gap-10 font-semibold text-[11px] tracking-widest">
                     <li className=" text-muted-foreground hover:text-foreground transition-colors duration-300">
                         <Link href={'/about'}>ABOUT</Link>
                     </li>
