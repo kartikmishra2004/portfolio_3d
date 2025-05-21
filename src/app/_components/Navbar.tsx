@@ -1,10 +1,25 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from 'gsap';
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 export default function Navbar() {
+
+    const navRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.from(navRef.current, {
+            y: -100,
+            duration: 1.5,
+            ease: 'power4.out',
+        });
+    });
+
     return (
-        <header className="fixed flex z-50 backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
+        <header ref={navRef} className="fixed flex z-50 backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
             <Link href={'/'}>
                 <Image className="saturate-0 brightness-150" src='logo.svg' alt="logo" width={17} height={17} />
             </Link>
