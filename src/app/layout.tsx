@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import { Poppins } from 'next/font/google';
+import Cursor from "./_components/Cursor";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html className="dark" lang="en">
       <body className={poppins.className}>
         <Navbar />
+        <Cursor />
         {children}
       </body>
     </html>
