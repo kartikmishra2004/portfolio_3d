@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <header className="fixed flex backdrop-blur-xs justify-between px-40 items-center h-16 w-full border-b">
+        <header className="fixed flex backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
             <Link href={'/'}>
                 <Image className="saturate-0 brightness-150" src='logo.svg' alt="logo" width={17} height={17} />
             </Link>
