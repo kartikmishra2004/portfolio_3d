@@ -4,6 +4,7 @@ import Navbar from "./_components/Extras/Navbar";
 import { Poppins } from 'next/font/google';
 import Cursor from "./_components/Extras/Cursor";
 import LennisWrapper from "./_utils/LenisWrapper";
+import Preloader from "./_utils/Preloader";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <body className={poppins.className}>
           <Navbar />
           <Cursor />
+          <Preloader />
+          <Preloader />
           {children}
         </body>
       </LennisWrapper>

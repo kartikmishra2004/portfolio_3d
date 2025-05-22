@@ -6,10 +6,10 @@ import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
+let hasGloballyAnimated = false;
+
 export default function Hero() {
-
     const words = ["TypeScript: Typed to perfection.", "THREE.js: 3D made simple.", "GSAP: Animate anything, fast.", "NEXT.js: Go full-stack, fast."];
-
     const titleRef = useRef(null);
     const fliptextRef = useRef(null);
     const description1Ref = useRef(null);
@@ -17,39 +17,52 @@ export default function Hero() {
     const buttonRef = useRef(null);
 
     useGSAP(() => {
-        gsap.from(titleRef.current, {
-            y: 250,
-            ease: 'power4.out',
-            duration: 1.5,
-            rotateZ: 5,
-        });
-        gsap.from(fliptextRef.current, {
-            y: 100,
-            ease: 'power4.out',
-            duration: 1.5,
-            delay: 0.7,
-            rotateZ: 5,
-        });
-        gsap.from(description1Ref.current, {
-            y: 50,
-            ease: 'power4.out',
-            duration: 1.5,
-            delay: 1,
-            rotateZ: 5,
-        });
-        gsap.from(description2Ref.current, {
-            y: 50,
-            ease: 'power4.out',
-            duration: 1.5,
-            delay: 1,
-            rotateZ: 5,
-        });
-        gsap.from(buttonRef.current, {
-            opacity: 0,
-            duration: 1.5,
-            ease: 'power4.out',
-            delay: 1.5,
-        });
+        if (!hasGloballyAnimated) {
+            gsap.from(titleRef.current, {
+                y: 250,
+                ease: 'power4.out',
+                duration: 1.5,
+                rotateZ: 5,
+                delay: 1,
+            });
+            gsap.from(fliptextRef.current, {
+                y: 100,
+                ease: 'power4.out',
+                duration: 1.5,
+                delay: 1.7,
+                rotateZ: 5,
+            });
+            gsap.from(description1Ref.current, {
+                y: 50,
+                ease: 'power4.out',
+                duration: 1.5,
+                delay: 2,
+                rotateZ: 5,
+            });
+            gsap.from(description2Ref.current, {
+                y: 50,
+                ease: 'power4.out',
+                duration: 1.5,
+                delay: 2,
+                rotateZ: 5,
+            });
+            gsap.from(buttonRef.current, {
+                opacity: 0,
+                duration: 1.5,
+                ease: 'power4.out',
+                delay: 2.5,
+            });
+            
+            hasGloballyAnimated = true;
+        } else {
+            gsap.set([titleRef.current, fliptextRef.current, description1Ref.current, description2Ref.current], {
+                y: 0,
+                rotateZ: 0
+            });
+            gsap.set(buttonRef.current, {
+                opacity: 1
+            });
+        }
     });
 
     return (
