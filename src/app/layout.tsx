@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
+import Navbar from "./_components/Extras/Navbar";
 import { Poppins } from 'next/font/google';
-import Cursor from "./_components/Cursor";
+import Cursor from "./_components/Extras/Cursor";
 import LennisWrapper from "./_utils/LenisWrapper";
 
 const poppins = Poppins({
