@@ -17,10 +17,18 @@ export default function DesktopSection() {
     const title3Ref = useRef(null);
     const textContainer1 = useRef(null);
     const textContainer2 = useRef(null);
-    const paragraph1 = 'elegant, high                 performance websites  that deliver';
-    const paragraph2 = 'seamless experiences  on large desktop          displays.';
+    const p1 = 'elegant, high';
+    const p2 = 'performance websites';
+    const p3 = 'that deliver';
+    const p4 = 'seamless experiences';
+    const p5 = 'on large desktop';
+    const p6 = 'displays.';
     const spanRefs1 = useRef<(HTMLSpanElement | null)[]>([]);
     const spanRefs2 = useRef<(HTMLSpanElement | null)[]>([]);
+    const spanRefs3 = useRef<(HTMLSpanElement | null)[]>([]);
+    const spanRefs4 = useRef<(HTMLSpanElement | null)[]>([]);
+    const spanRefs5 = useRef<(HTMLSpanElement | null)[]>([]);
+    const spanRefs6 = useRef<(HTMLSpanElement | null)[]>([]);
 
     useGSAP(() => {
 
@@ -72,7 +80,7 @@ export default function DesktopSection() {
             paddingLeft: 50,
         }, 'x');
 
-        tl.fromTo(spanRefs1.current, {
+        tl.fromTo([spanRefs1.current, spanRefs2.current, spanRefs3.current, spanRefs4.current, spanRefs5.current, spanRefs6.current], {
             color: '#27272a',
             y: 17,
             opacity: 0,
@@ -83,18 +91,6 @@ export default function DesktopSection() {
             y: 0,
             opacity: 1,
         }, 'x');
-
-        tl.fromTo(spanRefs2.current, {
-            color: '#27272a',
-            y: 17,
-            opacity: 0,
-        }, {
-            color: '#7b7b83',
-            stagger: 0.05,
-            ease: 'power4.out',
-            y: 0,
-            opacity: 1,
-        });
     });
 
     return (
@@ -119,14 +115,26 @@ export default function DesktopSection() {
             <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute">
                 <h3 className="text-3xl w-[60%] tracking-wider">
                     {
-                        paragraph1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                        p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                    } <br />
+                    {
+                        p2.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs2.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                    } <br />
+                    {
+                        p3.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs3.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
                 </h3>
             </div>
             <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute">
                 <h3 className="text-3xl text-muted w-[60%] tracking-wider">
                     {
-                        paragraph2.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs2.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                        p4.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs4.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                    } <br />
+                    {
+                        p5.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs5.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                    } <br />
+                    {
+                        p6.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs6.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
                 </h3>
             </div>
