@@ -19,7 +19,7 @@ export default function Macbook(props) {
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        trigger: '#scroll-section',
+        trigger: '#desktop-section',
         start: 'top top',
         pin: true,
         end: '+=4000',
@@ -27,10 +27,11 @@ export default function Macbook(props) {
         onUpdate: (self) => {
           if (action) {
             const duration = action.getClip().duration
-            const maxTime = duration * 0.5
+            const maxTime = duration * 0.22
             action.time = self.progress * maxTime
-            group.current.rotation.y = self.progress / 2
-            group.current.position.y = -self.progress * 4
+            group.current.rotation.y = self.progress / 3
+            group.current.rotation.x =  - self.progress / 2.5
+            group.current.position.y = - self.progress * 1.6
             mixer.update(0)
           }
         }
@@ -41,7 +42,7 @@ export default function Macbook(props) {
   }, [actions, mixer])
 
   return (
-    <group ref={group} {...props} dispose={null} scale={16}>
+    <group ref={group} {...props} dispose={null} scale={15}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 4.5, 0, 0]}>
           <group name="root">

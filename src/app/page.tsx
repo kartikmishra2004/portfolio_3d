@@ -1,11 +1,11 @@
 import Hero from "./_components/Home/Hero";
-import CTA from "./_components/Home/CTA";
+import DesktopSection from "./_components/Home/DesktopSection";
 
 export default function Home() {
   return (
     <section className="w-full">
       <Hero />
-      <CTA />
+      <DesktopSection />
     </section>
   );
 }
