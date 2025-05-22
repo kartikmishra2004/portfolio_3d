@@ -19,7 +19,7 @@ export default function Navbar() {
     });
 
     return (
-        <header ref={navRef} className="fixed flex z-50 backdrop-blur-xs justify-between px-40 items-center h-14 w-full border-b">
+        <header ref={navRef} className="fixed flex z-50 backdrop-blur-sm justify-between px-40 items-center h-14 w-full border-b">
             <Link href={'/'}>
                 <Image className="saturate-0 brightness-150" src='logo.svg' alt="logo" width={17} height={17} />
             </Link>
