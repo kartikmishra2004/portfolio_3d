@@ -28,7 +28,7 @@ export default function Macbook(props) {
           if (action) {
             const duration = action.getClip().duration
             action.time = (1 - self.progress) * duration
-            group.current.rotation.y = self.progress
+            group.current.rotation.y = self.progress /2
             group.current.position.y = -self.progress * 5
             mixer.update(0)
           }
@@ -40,7 +40,7 @@ export default function Macbook(props) {
   }, [actions, mixer])
 
   return (
-    <group ref={group} {...props} dispose={null} scale={20}>
+    <group ref={group} {...props} dispose={null} scale={18}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 4.5, 0, 0]}>
           <group name="root">
