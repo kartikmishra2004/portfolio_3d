@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./_components/Navbar";
 import { Poppins } from 'next/font/google';
 import Cursor from "./_components/Cursor";
+import LennisWrapper from "./_utils/LenisWrapper";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html className="dark" lang="en">
-      <body className={poppins.className}>
-        <Navbar />
-        <Cursor />
-        {children}
-      </body>
+      <LennisWrapper>
+        <body className={poppins.className}>
+          <Navbar />
+          <Cursor />
+          {children}
+        </body>
+      </LennisWrapper>
     </html>
   );
 }
