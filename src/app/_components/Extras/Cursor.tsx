@@ -94,15 +94,6 @@ export default function Cursor() {
             childList: true,
             subtree: true
         });
-
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.querySelectorAll('.cursor-effect').forEach(item => {
-                item.removeEventListener('mouseenter', h1Enter);
-                item.removeEventListener('mouseleave', h1Leave);
-            });
-            observer.disconnect();
-        };
     }, [pathname]);
 
     return (

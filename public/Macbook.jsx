@@ -42,7 +42,7 @@ export default function Macbook(props) {
   }, [actions, mixer])
 
   return (
-    <group ref={group} {...props} dispose={null} scale={15}>
+    <group ref={group} {...props} dispose={null} scale={16}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 4.5, 0, 0]}>
           <group name="root">

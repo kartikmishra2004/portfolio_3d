@@ -101,7 +101,7 @@ export default function DesktopSection() {
         <section id="desktop-section" className='w-full relative h-[100vh] overflow-visible bg-gradient-to-br from-accent via-background to-accent'>
             <div ref={sectionRef} className="absolute w-full h-screen z-40">
                 <Canvas>
-                    <Environment preset="studio" />
+                    <Environment files={'/studio_small_08_2k.exr'} />
                     <Macbook />
                 </Canvas>
             </div>
@@ -119,14 +119,14 @@ export default function DesktopSection() {
             <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute">
                 <h3 className="text-3xl w-[60%] tracking-wider">
                     {
-                        paragraph1.split('').map((item, index) => (<span className="inline-block" ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                        paragraph1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
                 </h3>
             </div>
             <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute">
                 <h3 className="text-3xl text-muted w-[60%] tracking-wider">
                     {
-                        paragraph2.split('').map((item, index) => (<span className="inline-block" ref={(el) => { spanRefs2.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
+                        paragraph2.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs2.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
                 </h3>
             </div>
