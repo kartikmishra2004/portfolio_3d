@@ -95,7 +95,7 @@ export default function DesktopSection() {
 
     return (
         <section id="desktop-section" className='w-full relative h-screen overflow-visible bg-gradient-to-br from-accent via-background to-accent'>
-            <div ref={sectionRef} className="absolute w-full h-screen z-40">
+            <div ref={sectionRef} className="absolute saturate-0 w-full h-screen z-40">
                 <Canvas>
                     <Environment files={'/assets/3d_models/macbook/studio_small_08_2k.exr'} />
                     <Macbook />
