@@ -46,7 +46,7 @@ export default function Iphone(props) {
 
     tl.fromTo(groupRef.current.rotation, {
       x: 0,
-      y: 0,
+      y: 2,
       z: 0,
     },
       {

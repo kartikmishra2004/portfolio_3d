@@ -8,7 +8,7 @@ export default function MobileSection() {
         <section id="mobile-section" className='w-full relative h-screen overflow-visible bg-gradient-to-br from-background via-accent to-background'>
             <div className="absolute w-full h-screen z-40">
                 <Canvas>
-                    <Environment preset="studio" />
+                    <Environment files="/assets/3d_models/iphone/blue_photo_studio_2k.exr" />
                     <Iphone />
                 </Canvas>
             </div>
