@@ -67,10 +67,10 @@ export default function Hero() {
 
     return (
         <section>
-            <div className="w-full z-0 h-screen flex bg-gradient-to-br from-background via-accent to-background flex-col gap-8 px-40 justify-center">
+            <div className="w-full z-0 h-[90vh] flex bg-gradient-to-br from-background via-accent to-background flex-col gap-8 px-40 justify-center">
                 <div>
                     <div className="overflow-hidden">
-                        <h1 ref={titleRef} className="text-9xl font-extrabold text-foreground/80 w-max tracking-tighter">KARTIK MISHRA</h1>
+                        <h1 ref={titleRef} className="text-9xl mt-[10vh] font-extrabold text-foreground/80 w-max tracking-tighter">KARTIK MISHRA</h1>
                     </div>
                     <div className="overflow-hidden">
                         <div ref={fliptextRef} className="text-3xl mb-3">
