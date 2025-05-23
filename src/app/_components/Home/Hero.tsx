@@ -23,34 +23,34 @@ export default function Hero() {
                 ease: 'power4.out',
                 duration: 1.5,
                 rotateZ: 5,
-                delay: 1,
+                delay: 3,
             });
             gsap.from(fliptextRef.current, {
                 y: 100,
                 ease: 'power4.out',
                 duration: 1.5,
-                delay: 1.7,
+                delay: 3.7,
                 rotateZ: 5,
             });
             gsap.from(description1Ref.current, {
                 y: 50,
                 ease: 'power4.out',
                 duration: 1.5,
-                delay: 2,
+                delay: 4,
                 rotateZ: 5,
             });
             gsap.from(description2Ref.current, {
                 y: 50,
                 ease: 'power4.out',
                 duration: 1.5,
-                delay: 2,
+                delay: 4,
                 rotateZ: 5,
             });
             gsap.from(buttonRef.current, {
                 opacity: 0,
                 duration: 1.5,
                 ease: 'power4.out',
-                delay: 2.5,
+                delay: 4.5,
             });
             
             hasGloballyAnimated = true;

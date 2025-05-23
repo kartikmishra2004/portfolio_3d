@@ -138,6 +138,11 @@
   }
 }
 
+body {
+  width: 100%;
+  position: fixed;
+}
+
 ::selection {
   background-color: var(--primary);
   color: var(--accent);

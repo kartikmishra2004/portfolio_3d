@@ -112,8 +112,8 @@ export default function DesktopSection() {
                     <h1 ref={title3Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">CREATE</h1>
                 </div>
             </div>
-            <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute">
-                <h3 className="text-3xl w-[60%] tracking-wider">
+            <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute z-50">
+                <p className="text-3xl w-[60%] tracking-wider">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />
@@ -123,10 +123,10 @@ export default function DesktopSection() {
                     {
                         p3.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs3.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
-                </h3>
+                </p>
             </div>
-            <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute">
-                <h3 className="text-3xl text-muted w-[60%] tracking-wider">
+            <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute z-50">
+                <p className="text-3xl text-muted w-[60%] tracking-wider">
                     {
                         p4.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs4.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />
@@ -136,7 +136,7 @@ export default function DesktopSection() {
                     {
                         p6.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs6.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
-                </h3>
+                </p>
             </div>
         </section>
     )

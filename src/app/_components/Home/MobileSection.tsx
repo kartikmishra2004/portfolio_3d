@@ -82,10 +82,10 @@ export default function MobileSection() {
             <div className="absolute w-[40%] flex pt-14 flex-col h-screen left-0">
                 <div className="flex">
                     <div className="overflow-hidden w-max flex">
-                        <h1 ref={mRef} className="text-[20rem] text-foreground/80 leading-none font-extrabold tracking-normal">M</h1>
+                        <h1 ref={mRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">M</h1>
                     </div>
                     <div className="overflow-hidden w-max flex">
-                        <h1 ref={yRef} className="text-[20rem] text-foreground/80 leading-none font-extrabold tracking-normal">Y</h1>
+                        <h1 ref={yRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">Y</h1>
                     </div>
                 </div>
                 <div className="overflow-hidden w-max">
@@ -97,8 +97,8 @@ export default function MobileSection() {
                     <h1 ref={designingRef} className="text-[9.4rem] text-foreground/80 leading-none italic font-extrabold tracking-tighter">DESIGNING</h1>
                 </div>
             </div>
-            <div className="absolute w-[60%] flex justify-end h-[60%] right-0 bottom-0">
-                <h3 className="text-3xl pt-10 tracking-wider w-[70%] text-muted underline">
+            <div className="absolute w-[60%] flex justify-end h-[60%] right-0 bottom-0 z-50">
+                <p className="text-3xl pt-10 tracking-wider w-[70%] text-muted underline">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />
@@ -108,7 +108,7 @@ export default function MobileSection() {
                     {
                         p3.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs3.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
-                </h3>
+                </p>
             </div>
 
         </section>
