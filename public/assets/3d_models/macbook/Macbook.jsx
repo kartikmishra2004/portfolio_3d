@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Macbook(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/macbook.gltf')
+  const { nodes, materials, animations } = useGLTF('/assets/3d_models/macbook/macbook.gltf')
   const { actions, mixer } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Macbook(props) {
             const maxTime = duration * 0.22
             action.time = self.progress * maxTime
             group.current.rotation.y = self.progress / 3
-            group.current.rotation.x =  - self.progress / 2.5
+            group.current.rotation.x = - self.progress / 2.5
             group.current.position.y = - self.progress * 1.6
             mixer.update(0)
           }
@@ -232,4 +232,4 @@ export default function Macbook(props) {
   )
 }
 
-useGLTF.preload('/macbook.gltf')
+useGLTF.preload('/assets/3d_models/macbook/macbook.gltf')

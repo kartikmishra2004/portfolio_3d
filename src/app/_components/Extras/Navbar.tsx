@@ -22,7 +22,7 @@ export default function Navbar() {
     return (
         <header ref={navRef} className="fixed flex z-50 backdrop-blur-sm justify-between px-40 items-center h-14 w-full border-b">
             <Link href={'/'}>
-                <Image className="saturate-0 brightness-150" src='logo.svg' alt="logo" width={17} height={17} />
+                <Image className="saturate-0 brightness-150" src='/assets/images/logo.svg' alt="logo" width={17} height={17} />
             </Link>
             <nav>
                 <ul className="flex gap-10 font-semibold text-[11px] tracking-widest">

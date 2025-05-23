@@ -1,7 +1,7 @@
 'use client'
 import { Canvas } from "@react-three/fiber"
 import { Environment } from "@react-three/drei"
-import Macbook from '../../../../public/Macbook'
+import Macbook from '../../../../public/assets/3d_models/macbook/Macbook'
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -97,7 +97,7 @@ export default function DesktopSection() {
         <section id="desktop-section" className='w-full relative h-[100vh] overflow-visible bg-gradient-to-br from-accent via-background to-accent'>
             <div ref={sectionRef} className="absolute w-full h-screen z-40">
                 <Canvas>
-                    <Environment files={'/studio_small_08_2k.exr'} />
+                    <Environment files={'/assets/3d_models/macbook/studio_small_08_2k.exr'} />
                     <Macbook />
                 </Canvas>
             </div>
