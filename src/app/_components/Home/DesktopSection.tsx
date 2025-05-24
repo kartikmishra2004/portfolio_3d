@@ -95,8 +95,8 @@ export default function DesktopSection() {
 
     return (
         <section id="desktop-section" className='w-full relative h-screen overflow-visible bg-gradient-to-br from-accent via-background to-accent'>
-            <div ref={sectionRef} className="absolute saturate-0 w-full h-screen z-40">
-                <Canvas>
+            <div ref={sectionRef} className="absolute saturate-0 w-full h-screen z-40 pointer-events-none">
+                <Canvas style={{ pointerEvents: 'none' }}>
                     <Environment files={'/assets/3d_models/macbook/studio_small_08_2k.exr'} />
                     <Macbook />
                 </Canvas>
@@ -112,7 +112,7 @@ export default function DesktopSection() {
                     <h1 ref={title3Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">CREATE</h1>
                 </div>
             </div>
-            <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute z-50">
+            <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute">
                 <p className="text-3xl w-[60%] tracking-wider">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
@@ -125,7 +125,7 @@ export default function DesktopSection() {
                     }
                 </p>
             </div>
-            <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute z-50">
+            <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute">
                 <p className="text-3xl text-muted w-[60%] tracking-wider">
                     {
                         p4.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs4.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))

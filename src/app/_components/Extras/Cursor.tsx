@@ -42,7 +42,7 @@ export default function Cursor() {
 
         const h1Enter = () => {
             gsap.to(cursor, {
-                scale: 5,
+                scale: 6,
                 backgroundColor: '#ffffff'
             });
         };
@@ -56,7 +56,7 @@ export default function Cursor() {
 
         const pEnter = () => {
             gsap.to(cursor, {
-                scale: 2,
+                scale: 3,
                 backgroundColor: '#ffffff',
             });
         };

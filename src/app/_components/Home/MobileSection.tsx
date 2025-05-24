@@ -6,6 +6,8 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +24,7 @@ export default function MobileSection() {
     const spanRefs1 = useRef<(HTMLSpanElement | null)[]>([]);
     const spanRefs2 = useRef<(HTMLSpanElement | null)[]>([]);
     const spanRefs3 = useRef<(HTMLSpanElement | null)[]>([]);
+    const buttonRef = useRef(null);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -69,12 +72,16 @@ export default function MobileSection() {
             opacity: 1,
         });
 
+        tl.from(buttonRef.current, {
+            opacity: 0,
+            ease: 'power4.out',
+        });
     });
 
     return (
         <section id="mobile-section" className='w-full relative h-screen overflow-visible bg-gradient-to-br from-background via-accent to-background'>
-            <div ref={mobileSectionRef} className="absolute saturate-0 w-full h-screen z-40">
-                <Canvas>
+            <div ref={mobileSectionRef} className="absolute saturate-0 w-full h-screen z-40 pointer-events-none">
+                <Canvas style={{ pointerEvents: 'none' }}>
                     <Environment files="/assets/3d_models/iphone/blue_photo_studio_2k.exr" />
                     <Iphone />
                 </Canvas>
@@ -92,12 +99,12 @@ export default function MobileSection() {
                     <h1 ref={visionRef} className="text-[11rem] text-foreground/80 leading-none font-extrabold tracking-tighter">Vision</h1>
                 </div>
             </div>
-            <div className="absolute w-[60%] flex flex-col pt-24 items-end h-[40%] right-0 top-0">
+            <div className="absolute w-[60%] flex flex-col pt-24 items-end h-[35%] right-0 top-0">
                 <div className="overflow-hidden w-max pr-4">
                     <h1 ref={designingRef} className="text-[9.4rem] text-foreground/80 leading-none italic font-extrabold tracking-tighter">DESIGNING</h1>
                 </div>
             </div>
-            <div className="absolute w-[60%] flex justify-end h-[60%] right-0 bottom-0 z-50">
+            <div className="absolute w-[60%] flex flex-col items-end h-[65%] right-0 bottom-0 z-50">
                 <p className="text-3xl pt-10 tracking-wider w-[70%] text-muted underline">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
@@ -109,8 +116,19 @@ export default function MobileSection() {
                         p3.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs3.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     }
                 </p>
+                <div ref={buttonRef} className="flex gap-2 pt-6 w-[70%]">
+                    <Link href={'/contact'}>
+                        <Button size={"lg"} className="cursor-pointer">
+                            Hire me
+                        </Button>
+                    </Link>
+                    <Link href={'/projects'}>
+                        <Button variant={'outline'} size={"lg"} className="cursor-pointer">
+                            Explore projects
+                        </Button>
+                    </Link>
+                </div>
             </div>
-
         </section>
     )
 }
