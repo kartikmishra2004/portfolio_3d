@@ -13,7 +13,7 @@ import { useCursor } from "@/app/_context/Cursor";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileSection() {
-    const { scaleUp, scaleDown, setColor, reset } = useCursor();
+    const { scaleUp, setColor, reset } = useCursor();
     const mobileSectionRef = useRef(null);
     const mRef = useRef(null);
     const yRef = useRef(null);

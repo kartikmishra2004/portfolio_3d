@@ -5,6 +5,7 @@ import { useRef } from "react";
 import ProjectCylinder from "./ProjectCylinder";
 
 function AutoReturnControls() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const controlsRef = useRef<any>(null);
 
     useFrame(() => {

@@ -1,5 +1,4 @@
-// context/CursorContext.tsx
-'use client'
+'use client';
 import { createContext, useContext, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { usePathname } from 'next/navigation';
@@ -8,6 +7,9 @@ type CursorContextType = {
     scaleUp: (amount: number) => void;
     setColor: (color: string) => void;
     reset: () => void;
+    setInnerContent: (html: string) => void;
+    setBlendMode: (mode: string) => void;
+    setStyle: (styles: Partial<CSSStyleDeclaration>) => void;
 };
 
 const CursorContext = createContext<CursorContextType | null>(null);
@@ -34,16 +36,16 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
                 x: e.clientX - 15,
                 y: e.clientY - 10,
                 ease: 'power4.out',
-                duration: 1,
+                duration: 0.4,
             });
         };
 
         const hideCursor = () => {
-            gsap.to(cursor, { opacity: 0, duration: 1 });
+            gsap.to(cursor, { opacity: 0, duration: 0.4 });
         };
 
         const showCursor = () => {
-            gsap.to(cursor, { opacity: 1, duration: 1 });
+            gsap.to(cursor, { opacity: 1, duration: 0.4 });
         };
 
         document.addEventListener('mousemove', moveCursor);
@@ -77,13 +79,42 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             backgroundColor: 'transparent',
             duration: 0.4,
         });
+        cursor.innerHTML = '';
+        cursor.style.mixBlendMode = 'difference';
+    };
+
+    const setInnerContent = (html: string) => {
+        const cursor = cursorRef.current;
+        if (!cursor) return;
+        cursor.innerHTML = html;
+    };
+
+    const setBlendMode = (mode: string) => {
+        const cursor = cursorRef.current;
+        if (!cursor) return;
+        cursor.style.mixBlendMode = mode;
+    };
+
+    const setStyle = (styles: Partial<CSSStyleDeclaration>) => {
+        const cursor = cursorRef.current;
+        if (!cursor) return;
+        Object.assign(cursor.style, styles);
     };
 
     return (
-        <CursorContext.Provider value={{ scaleUp, setColor, reset }}>
+        <CursorContext.Provider
+            value={{
+                scaleUp,
+                setColor,
+                reset,
+                setInnerContent,
+                setBlendMode,
+                setStyle,
+            }}
+        >
             <div
                 ref={cursorRef}
-                className="w-10 h-10 mix-blend-difference fixed pointer-events-none z-50 border border-white rounded-full"
+                className="w-10 h-10 mix-blend-difference fixed pointer-events-none z-50 border border-white rounded-full flex items-center justify-center text-center"
             />
             {children}
         </CursorContext.Provider>
