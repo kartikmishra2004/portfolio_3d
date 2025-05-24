@@ -6,11 +6,12 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
+import { useCursor } from "@/app/_context/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DesktopSection() {
-
+    const { scaleUp, setColor, reset } = useCursor();
     const sectionRef = useRef(null);
     const title1Ref = useRef(null);
     const title2Ref = useRef(null);
@@ -103,17 +104,17 @@ export default function DesktopSection() {
             </div>
             <div ref={textContainer1} className="w-1/2 h-1/2 left-0 tracking-tighter mt-14 absolute flex justify-center items-center">
                 <div className="overflow-hidden px-1 flex gap-8">
-                    <h1 ref={title1Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">THIS</h1>
-                    <h1 ref={title2Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">MIND</h1>
+                    <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={title1Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">THIS</h1>
+                    <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={title2Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">MIND</h1>
                 </div>
             </div>
             <div ref={textContainer2} className="w-1/2 h-1/2 right-0 mt-14 absolute flex justify-center items-center">
                 <div className="overflow-hidden px-1">
-                    <h1 ref={title3Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">CREATE</h1>
+                    <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={title3Ref} className="text-[10rem] text-foreground/80 leading-none font-extrabold tracking-tighter">CREATE</h1>
                 </div>
             </div>
             <div className="w-1/2 h-1/2 flex p-14 bottom-0 left-0 absolute">
-                <p className="text-3xl w-[60%] tracking-wider">
+                <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} className="text-3xl w-[60%] tracking-wider">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />
@@ -126,7 +127,7 @@ export default function DesktopSection() {
                 </p>
             </div>
             <div className="w-1/2 h-1/2 flex justify-end p-14 bottom-0 right-0 absolute">
-                <p className="text-3xl text-muted w-[60%] tracking-wider">
+                <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} className="text-3xl text-muted w-[60%] tracking-wider">
                     {
                         p4.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs4.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />

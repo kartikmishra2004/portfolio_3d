@@ -7,12 +7,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import { useCursor } from "@/app/_context/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileSection() {
-
+    const { scaleUp, scaleDown, setColor, reset } = useCursor();
     const mobileSectionRef = useRef(null);
     const mRef = useRef(null);
     const yRef = useRef(null);
@@ -89,23 +90,23 @@ export default function MobileSection() {
             <div className="absolute w-[40%] flex pt-14 flex-col h-screen left-0">
                 <div className="flex">
                     <div className="overflow-hidden w-max flex">
-                        <h1 ref={mRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">M</h1>
+                        <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={mRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">M</h1>
                     </div>
                     <div className="overflow-hidden w-max flex">
-                        <h1 ref={yRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">Y</h1>
+                        <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={yRef} className="text-[18rem] text-foreground/80 leading-none font-extrabold tracking-normal">Y</h1>
                     </div>
                 </div>
                 <div className="overflow-hidden w-max">
-                    <h1 ref={visionRef} className="text-[11rem] text-foreground/80 leading-none font-extrabold tracking-tighter">Vision</h1>
+                    <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={visionRef} className="text-[11rem] text-foreground/80 leading-none font-extrabold tracking-tighter">Vision</h1>
                 </div>
             </div>
             <div className="absolute w-[60%] flex flex-col pt-24 items-end h-[35%] right-0 top-0">
                 <div className="overflow-hidden w-max pr-4">
-                    <h1 ref={designingRef} className="text-[9.4rem] text-foreground/80 leading-none italic font-extrabold tracking-tighter">DESIGNING</h1>
+                    <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={designingRef} className="text-[9.4rem] text-foreground/80 leading-none italic font-extrabold tracking-tighter">DESIGNING</h1>
                 </div>
             </div>
             <div className="absolute w-[60%] flex flex-col items-end h-[65%] right-0 bottom-0 z-50">
-                <p className="text-3xl pt-10 tracking-wider w-[70%] text-muted underline">
+                <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} className="text-3xl pt-10 tracking-wider w-[70%] text-muted underline">
                     {
                         p1.split('').map((item, index) => (<span className={`inline-block ${item === ' ' ? '' : 'underline'}`} ref={(el) => { spanRefs1.current[index] = el }} key={index}>{item === ' ' ? '\u00A0' : item}</span>))
                     } <br />

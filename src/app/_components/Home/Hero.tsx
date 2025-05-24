@@ -5,10 +5,12 @@ import Link from "next/link";
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { useCursor } from "@/app/_context/Cursor";
 
 let hasGloballyAnimated = false;
 
 export default function Hero() {
+    const { scaleUp, setColor, reset } = useCursor();
     const words = ["TypeScript: Typed to perfection.", "THREE.js: 3D made simple.", "GSAP: Animate anything, fast.", "NEXT.js: Go full-stack, fast."];
     const titleRef = useRef(null);
     const fliptextRef = useRef(null);
@@ -52,7 +54,7 @@ export default function Hero() {
                 ease: 'power4.out',
                 delay: 4.5,
             });
-            
+
             hasGloballyAnimated = true;
         } else {
             gsap.set([titleRef.current, fliptextRef.current, description1Ref.current, description2Ref.current], {
@@ -70,7 +72,7 @@ export default function Hero() {
             <div className="w-full z-0 h-[90vh] flex bg-gradient-to-br from-background via-accent to-background flex-col gap-6 px-40 justify-center">
                 <div>
                     <div className="overflow-hidden">
-                        <h1 ref={titleRef} className="text-9xl mt-[10vh] font-extrabold text-foreground/80 w-max tracking-tighter">KARTIK MISHRA</h1>
+                        <h1 onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(5.5); setColor("#ffffff") }} ref={titleRef} className="text-9xl mt-[10vh] font-extrabold text-foreground/80 w-max tracking-tighter">KARTIK MISHRA</h1>
                     </div>
                     <div className="overflow-hidden">
                         <div ref={fliptextRef} className="text-3xl mb-3">
@@ -78,10 +80,10 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="overflow-hidden">
-                        <p ref={description1Ref} className="text-muted-foreground/70 mt-6 text-sm tracking-widest w-1/2 font-semibold">Turning ideas into interactive web experiences. Clean code. Sleek</p>
+                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} ref={description1Ref} className="text-muted-foreground/70 mt-6 text-sm tracking-widest w-1/2 font-semibold">Turning ideas into interactive web experiences. Clean code. Sleek</p>
                     </div>
                     <div className="overflow-hidden">
-                        <p ref={description2Ref} className="text-muted-foreground/70 text-sm tracking-wider w-1/2 font-semibold">design. Seamless performance.</p>
+                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} ref={description2Ref} className="text-muted-foreground/70 text-sm tracking-wider w-1/2 font-semibold">design. Seamless performance.</p>
                     </div>
                 </div>
                 <div ref={buttonRef} className="w-full flex gap-2">
