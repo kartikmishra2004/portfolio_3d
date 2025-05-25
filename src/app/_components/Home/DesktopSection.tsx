@@ -13,11 +13,16 @@ gsap.registerPlugin(ScrollTrigger);
 export default function DesktopSection() {
     const { scaleUp, setColor, reset } = useCursor();
     const sectionRef = useRef(null);
+    const aRef = useRef(null);
+    const lRef = useRef(null);
+    const sRef = useRef(null);
+    const oRef = useRef(null);
     const title1Ref = useRef(null);
     const title2Ref = useRef(null);
     const title3Ref = useRef(null);
     const textContainer1 = useRef(null);
     const textContainer2 = useRef(null);
+    const alsoContainerRef = useRef(null);
     const p1 = 'elegant, high';
     const p2 = 'performance websites';
     const p3 = 'that deliver';
@@ -37,7 +42,7 @@ export default function DesktopSection() {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: 'top top',
-                end: '+=4000',
+                end: '+=5000',
                 scrub: true,
             }
         })
@@ -92,10 +97,39 @@ export default function DesktopSection() {
             y: 0,
             opacity: 1,
         }, 'x');
+
+        tl.to(alsoContainerRef.current, {
+            x: '-100%'
+        });
+
+        tl.from([aRef.current, lRef.current, sRef.current, oRef.current], {
+            x: -300,
+            ease: 'power4.out',
+            opacity: 0,
+        }, 'last');
+
+        tl.to(sectionRef.current, {
+            display: 'none',
+        }, 'last');
+
     });
 
     return (
         <section id="desktop-section" className='w-full relative h-screen overflow-visible bg-gradient-to-br from-accent via-background to-accent'>
+            <section ref={alsoContainerRef} className="w-full h-screen bg-gradient-to-br from-accent via-background to-accent flex justify-center items-center absolute right-[-100%] z-50">
+                <div className=" overflow-hidden">
+                    <h1 ref={aRef} className="text-[20rem] leading-none text-foreground/80 font-extrabold">A</h1>
+                </div>
+                <div className=" overflow-hidden">
+                    <h1 ref={lRef} className="text-[20rem] leading-none text-foreground/80 font-extrabold">L</h1>
+                </div>
+                <div className=" overflow-hidden">
+                    <h1 ref={sRef} className="text-[20rem] leading-none text-foreground/80 font-extrabold">S</h1>
+                </div>
+                <div className=" overflow-hidden">
+                    <h1 ref={oRef} className="text-[20rem] leading-none text-foreground/80 font-extrabold">O</h1>
+                </div>
+            </section>
             <div ref={sectionRef} className="absolute saturate-0 w-full h-screen z-40 pointer-events-none">
                 <Canvas style={{ pointerEvents: 'none' }}>
                     <Environment files={'/assets/3d_models/macbook/studio_small_08_2k.exr'} />

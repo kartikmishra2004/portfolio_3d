@@ -22,7 +22,7 @@ export default function Macbook(props) {
         trigger: '#desktop-section',
         start: 'top top',
         pin: true,
-        end: '+=4000',
+        end: '+=5000',
         scrub: true,
         onUpdate: (self) => {
           if (action) {
