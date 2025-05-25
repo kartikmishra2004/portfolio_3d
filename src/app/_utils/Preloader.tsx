@@ -39,9 +39,9 @@ export default function Preloader() {
 
     if (loading) {
         return (
-            <div ref={mainRef} className='h-screen w-full fixed z-[9999] bg-accent flex flex-col gap-4 justify-center items-center'>
-                <div ref={spinnerRef} className="w-12 h-12 border-muted-foreground border-t animate-spin rounded-full"></div>
-                <h1 ref={textRef} className="font-semibold text-xl text-foreground/60">LOADING</h1>
+            <div ref={mainRef} className='h-screen w-full fixed z-[9999] bg-background flex flex-col gap-3 justify-center items-center'>
+                <div ref={spinnerRef} className="w-8 h-8 border-muted-foreground border-t animate-spin rounded-full"></div>
+                <h1 ref={textRef} className="font-semibold text-foreground/60">LOADING</h1>
             </div>
         )
     } else {

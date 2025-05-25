@@ -81,10 +81,10 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="overflow-hidden">
-                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} ref={description1Ref} className="text-muted-foreground/70 mt-6 text-sm tracking-widest w-1/2 font-semibold">Turning ideas into interactive web experiences. Clean code. Sleek</p>
+                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(2); setColor("#ffffff") }} ref={description1Ref} className="text-muted-foreground/70 mt-6 text-sm tracking-widest w-1/2 font-semibold">Turning ideas into interactive web experiences. Clean code. Sleek</p>
                     </div>
                     <div className="overflow-hidden">
-                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(3); setColor("#ffffff") }} ref={description2Ref} className="text-muted-foreground/70 text-sm tracking-wider w-1/2 font-semibold">design. Seamless performance.</p>
+                        <p onMouseLeave={() => reset()} onMouseEnter={() => { scaleUp(2); setColor("#ffffff") }} ref={description2Ref} className="text-muted-foreground/70 text-sm tracking-wider w-1/2 font-semibold">design. Seamless performance.</p>
                     </div>
                 </div>
                 <div ref={buttonRef} className="w-full flex gap-2">
