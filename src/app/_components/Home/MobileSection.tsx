@@ -31,7 +31,7 @@ export default function MobileSection() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: mobileSectionRef.current,
-                start: '+=4000',
+                start: '+=4001',
                 end: '+=4000',
                 scrub: true,
             }
