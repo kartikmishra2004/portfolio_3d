@@ -33,6 +33,7 @@ export default function Hero() {
                 duration: 1.5,
                 delay: 3.7,
                 rotateZ: 5,
+                opacity: 0,
             });
             gsap.from(description1Ref.current, {
                 y: 50,
